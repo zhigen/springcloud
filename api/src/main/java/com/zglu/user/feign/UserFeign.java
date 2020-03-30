@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 /**
  * @author zglu
  */
-@FeignClient(name = "user")
+@FeignClient(name = "gateway")
 public interface UserFeign {
 
     /**
@@ -16,7 +16,7 @@ public interface UserFeign {
      * @param id 用户id
      * @return 用户信息
      */
-    @GetMapping("/user/{id}")
+    @GetMapping("/user/{id}?token=1")
     String get(@PathVariable("id") String id);
 
 }

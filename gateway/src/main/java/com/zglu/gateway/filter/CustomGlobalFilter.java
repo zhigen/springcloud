@@ -19,6 +19,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * @author zglu
+ */
 @Log4j2
 @Component
 public class CustomGlobalFilter implements GlobalFilter, Ordered {
