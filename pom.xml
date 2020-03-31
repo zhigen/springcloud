@@ -13,9 +13,9 @@
     <modules>
         <module>nacos</module>
         <module>api</module>
-        <module>user</module>
+        <module>first</module>
         <module>gateway</module>
-        <module>goods</module>
+        <module>second</module>
     </modules>
 
     <!-- 打包类型，默认jar，会打成jar包。父项目只控制版本不需要打包，设为pom -->
@@ -30,6 +30,7 @@
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
         <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+        <swagger.version>2.7.0</swagger.version>
     </properties>
 
     <!-- 声明依赖，不自动引入，子项目需要显式声明需要用的依赖 -->

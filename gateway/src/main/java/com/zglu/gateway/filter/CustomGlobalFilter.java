@@ -1,5 +1,6 @@
 package com.zglu.gateway.filter;
 
+import com.zglu.gateway.config.MySwaggerResourceProvider;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -39,6 +40,10 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         log.info(exchange.getRequest().getMethod() + " " + exchange.getRequest().getURI());
         log.info(getBodyFromRequest(exchange.getRequest()));
+        if (exchange.getRequest().getURI().getPath().endsWith(MySwaggerResourceProvider.SWAGGER2URL)) {
+            // 如果是访问api文档，则不进行权限判断
+            return chain.filter(exchange);
+        }
         boolean result = check(exchange);
         if (result) {
             return chain.filter(exchange);

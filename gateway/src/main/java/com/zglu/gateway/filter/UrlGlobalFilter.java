@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 @Component
 public class UrlGlobalFilter implements GlobalFilter, Ordered {
 
-    public static final Pattern PATTERN_UPPERCASE = Pattern.compile("/goods|/user");
+    public static final Pattern PATTERN_UPPERCASE = Pattern.compile("/first|/second");
 
     @Override
     public int getOrder() {
