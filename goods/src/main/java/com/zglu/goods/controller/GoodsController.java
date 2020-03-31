@@ -1,4 +1,4 @@
-package com.zglu.user.controller;
+package com.zglu.goods.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @author zglu
  */
 @RestController
-public class UserController {
+public class GoodsController {
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/goods/{id}")
     public String get(@PathVariable String id) {
-        return "user：" + id;
+        return "goods：" + id;
     }
 }

@@ -1,4 +1,4 @@
-package com.zglu.user.feign;
+package com.zglu.goods.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author zglu
  */
 @FeignClient("gateway")
-@RequestMapping("/user")
-public interface UserFeign {
+@RequestMapping("/goods")
+public interface GoodsFeign {
 
     /**
      * 获取用户信息
@@ -18,7 +18,7 @@ public interface UserFeign {
      * @param id 用户id
      * @return 用户信息
      */
-    @GetMapping("/user/{id}?token=1")
+    @GetMapping("/goods/{id}?token=1")
     String get(@PathVariable("id") String id);
 
 }
