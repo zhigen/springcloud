@@ -1,6 +1,6 @@
-package com.zglu.api.user.controller;
+package com.zglu.app.user.controller;
 
-import com.zglu.api.user.service.UserService;
+import com.zglu.app.user.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

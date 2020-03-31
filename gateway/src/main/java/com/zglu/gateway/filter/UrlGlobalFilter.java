@@ -1,5 +1,6 @@
 package com.zglu.gateway.filter;
 
+import com.zglu.gateway.config.MySwaggerResourceProvider;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -31,12 +32,13 @@ public class UrlGlobalFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        // 将用以标识服务名称的uri开头，拦截去除
-        UriComponents uri = UriComponentsBuilder.fromHttpUrl(PATTERN_UPPERCASE.matcher(exchange.getRequest().getURI().toString()).replaceFirst("")).build();
-        ServerHttpRequest request = exchange.getRequest();
-        request = request.mutate().uri(uri.toUri()).build();
-        return chain.filter(exchange.mutate().request(request).build()).then(Mono.fromRunnable(() -> {
-
-        }));
+        if (exchange.getRequest().getURI().getPath().endsWith(MySwaggerResourceProvider.SWAGGER2URL)) {
+            // 当访问路径为接口文档时，将路由名称去除
+            UriComponents uri = UriComponentsBuilder.fromHttpUrl(PATTERN_UPPERCASE.matcher(exchange.getRequest().getURI().toString()).replaceFirst("")).build();
+            ServerHttpRequest request = exchange.getRequest();
+            request = request.mutate().uri(uri.toUri()).build();
+            return chain.filter(exchange.mutate().request(request).build());
+        }
+        return chain.filter(exchange);
     }
 }

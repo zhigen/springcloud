@@ -1,6 +1,6 @@
-package com.zglu.api.user.service;
+package com.zglu.app.user.service;
 
-import com.zglu.api.user.feign.UserFeign;
+import com.zglu.app.user.feign.UserFeign;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

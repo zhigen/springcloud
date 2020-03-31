@@ -1,4 +1,4 @@
-package com.zglu.api.other;
+package com.zglu.app.other;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

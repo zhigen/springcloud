@@ -1,4 +1,4 @@
-package com.zglu.api.other;
+package com.zglu.app.other;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

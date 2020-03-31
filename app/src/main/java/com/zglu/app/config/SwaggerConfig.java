@@ -1,4 +1,4 @@
-package com.zglu.api.config;
+package com.zglu.app.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +26,7 @@ public class SwaggerConfig {
     @Bean
     public ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("api")
+                .title("app")
                 .description("测试文档")
                 .version("1")
                 .build();

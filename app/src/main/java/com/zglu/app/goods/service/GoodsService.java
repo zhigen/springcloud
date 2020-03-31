@@ -1,6 +1,6 @@
-package com.zglu.api.goods.service;
+package com.zglu.app.goods.service;
 
-import com.zglu.api.goods.feign.GoodsFeign;
+import com.zglu.app.goods.feign.GoodsFeign;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

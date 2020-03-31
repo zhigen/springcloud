@@ -12,10 +12,10 @@
     <!-- 子项目 -->
     <modules>
         <module>nacos</module>
-        <module>api</module>
         <module>first</module>
-        <module>gateway</module>
         <module>second</module>
+        <module>gateway</module>
+        <module>app</module>
     </modules>
 
     <!-- 打包类型，默认jar，会打成jar包。父项目只控制版本不需要打包，设为pom -->

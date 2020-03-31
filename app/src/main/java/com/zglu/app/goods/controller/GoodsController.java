@@ -1,6 +1,6 @@
-package com.zglu.api.goods.controller;
+package com.zglu.app.goods.controller;
 
-import com.zglu.api.goods.service.GoodsService;
+import com.zglu.app.goods.service.GoodsService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
