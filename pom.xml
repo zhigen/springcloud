@@ -9,7 +9,8 @@
     <artifactId>springcloud</artifactId>
     <!-- 版本 -->
     <version>1.0-SNAPSHOT</version>
-    <!-- 子项目 -->
+
+    <!-- 子模块 -->
     <modules>
         <module>nacos</module>
         <module>first</module>
@@ -18,9 +19,10 @@
         <module>app</module>
     </modules>
 
-    <!-- 打包类型，默认jar，会打成jar包。父项目只控制版本不需要打包，设为pom -->
+    <!-- 打包类型，默认jar。父项目只控制版本不需要打成jar包，设为pom -->
     <packaging>pom</packaging>
 
+    <!-- 参数 -->
     <properties>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -33,14 +35,14 @@
         <swagger.version>2.7.0</swagger.version>
     </properties>
 
-    <!-- 声明依赖，不自动引入，子项目需要显式声明需要用的依赖 -->
+    <!-- 依赖预设版本，不引入。引入需要显式声明依赖，声明时可覆盖预设版本 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
-                <!-- 导入pom里的dependencyManagement声明的依赖，子项目则可通过非继承模式实现显式声明依赖 -->
+                <!-- 导入外部的依赖预设版本 -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -63,16 +65,16 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- 自动引入，子项目继承依赖 -->
+    <!-- 依赖，子项目会继承 -->
     <dependencies>
-        <!-- 引入lombok依赖 -->
+        <!-- lombok依赖 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- 引入log4j2依赖 -->
+        <!-- log4j2依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
